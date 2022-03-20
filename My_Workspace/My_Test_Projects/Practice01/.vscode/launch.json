@@ -16,9 +16,5 @@
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
     }
-  ],
-  "resolveSourceMapLocations": [
-    "${workspaceFolder}/**",
-    "!**/node_modules/**"
-]
+  ]
 }

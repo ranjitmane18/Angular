@@ -1,7 +1,8 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+
 import { Observable } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
+import { catchError, map, tap } from "rxjs/operators";
 import { IWeatherForecast } from "./weatherforecast";
 
 
@@ -11,21 +12,24 @@ import { IWeatherForecast } from "./weatherforecast";
 
 export class RequestService
 {
-  private webServiceUrl = "https://localhost:7231/api/WeatherForecast";
-  constructor(private http: HttpClient) {
+  forecasts! : Observable<HttpResponse<IWeatherForecast[]>>;
 
-  }
+  constructor(private http: HttpClient) {}
 
-  requestGet() : Observable<IWeatherForecast[]> {
-    return this.http.get<IWeatherForecast[]>(this.webServiceUrl).pipe(
-      tap(data => console.log('All', JSON.stringify(data))),
+  requestGet(webServiceUrl : string) : Observable<HttpResponse<IWeatherForecast[]>> {
+    return this.http.get<any>(webServiceUrl, {observe : 'response'}).pipe(
+      tap(data => {
+        console.dir(data);
+          console.log('The calculated data size : ',data);
+
+      }),
       catchError(this.handleError)
       );
-  }
+    }
 
-  private handleError(err : HttpErrorResponse) : Observable<IWeatherForecast[]>
+  private handleError(err : HttpErrorResponse) : Observable<HttpResponse<IWeatherForecast[]>>
   {
-    let tempObservable = new Observable<IWeatherForecast[]>();
+    let tempObservable = new Observable<HttpResponse<IWeatherForecast[]>>();
 
     let errorMessage = '';
     if(err.error instanceof ErrorEvent)
@@ -40,3 +44,5 @@ export class RequestService
     return tempObservable;
   }
 }
+
+

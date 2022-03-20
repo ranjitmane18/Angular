@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './HomeView/home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SendGetRequestComponent } from './send-get-request/send-get-request.component';
+import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { SendGetRequestComponent } from './send-get-request/send-get-request.com
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path :'home', component : HomeComponent},
@@ -26,7 +29,7 @@ import { SendGetRequestComponent } from './send-get-request/send-get-request.com
       {path : '**', redirectTo : 'home', pathMatch: 'full'}
     ]),
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

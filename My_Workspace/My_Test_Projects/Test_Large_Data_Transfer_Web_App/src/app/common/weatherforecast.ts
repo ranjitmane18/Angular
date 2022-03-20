@@ -1,7 +1,6 @@
-export interface IWeatherForecast
-{
-    Date : Date,
-    TemperatureC : number,
-    TemperatureF : number,
-    Summary : string
+export interface IWeatherForecast {
+  date: Date;
+  temperatureC: number;
+  temperatureF: number;
+  summary: string;
 }

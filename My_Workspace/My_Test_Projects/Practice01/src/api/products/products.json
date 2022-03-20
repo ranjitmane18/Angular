@@ -1,0 +1,32 @@
+[
+  {
+    "productId": 2,
+    "productName": "Truck",
+    "productCode": "DGN-0023",
+    "releaseDate": " 15 gallon capacity",
+    "price" : 32.99112,
+    "description":"this is sample description",
+    "starRating" : 4.6,
+    "imageUrl" :"assets/images/delivery-truck.png"
+  },
+  {
+    "productId": 5,
+    "productName": "Scooter",
+    "productCode": "TFD-0053",
+    "releaseDate": "Curved claw steel hammer",
+    "description":"this is sample description",
+    "price" : 8.9334,
+    "starRating" : 5.2,
+    "imageUrl" :"assets/images/delivery.png"
+  },
+  {
+    "productId": 6,
+    "productName": "E-Scooter",
+    "productCode": "TFD-0053",
+    "releaseDate": "Curved claw steel hammer",
+    "description":"this is sample description",
+    "price" : 8.9334,
+    "starRating" : 3.3,
+    "imageUrl" :"assets/images/delivery.png"
+  }
+]
