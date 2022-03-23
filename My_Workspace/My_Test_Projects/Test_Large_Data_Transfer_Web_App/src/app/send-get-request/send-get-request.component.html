@@ -10,13 +10,13 @@
           <form>
 
             <div class="d-flex flex-row">
-              <label for="send-request-input-url" class="form-label">Enter URL to send a GET request</label>
+              <label for="send-get-request-input-url" class="form-label">Enter URL to send a GET request</label>
             </div>
 
             <div class="d-flex flex-row">
 
               <div class="d-flex justify-content-start flex-fill me-1 py-1">
-                <input type="url" name="send-request-input-url" [(ngModel)]="this.webServiceUrl" class="form-control" id="send-request-input-url">
+                <input type="url" name="send-get-request-input-url" [(ngModel)]="this.webServiceUrl" class="form-control" id="send-get-request-input-url">
               </div>
 
               <div class="d-flex justify-content-end p-1">
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <div class="row my-5">
+  <div class="row my-3">
     <div class="col">
       <div class="card">
         <div class="card-header bg-light">
@@ -48,6 +48,7 @@
                   <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                       <th class="text-center" scope="col">Sr. No.</th>
+                      <th class="text-center" scope="col">Status code</th>
                       <th class="text-center" scope="col">No. of JSON objects</th>
                       <th class="text-center" scope="col">Size</th>
                       <th class="text-center" scope="col">Time taken (In seconds)</th>
@@ -56,6 +57,7 @@
                     <tbody>
                         <tr class="bg-info" *ngFor="let requestInfo of requestInfos; index as i">
                           <td class="table-info text-center">{{this.requestInfo.id}}</td>
+                          <td class="table-info text-center">{{this.requestInfo.statusCode}}</td>
                           <td class="table-info text-center">{{this.requestInfo.responseBodyLength}}</td>
                           <td class="table-info text-center">{{this.requestInfo.size}}</td>
                           <td class="table-info text-center">{{this.requestInfo.timeTaken}}</td>

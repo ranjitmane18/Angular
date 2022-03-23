@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col my-3">
+
+      <div class="card">
+        <div class="card-header bg-light">
+          Perform a POST operation
+        </div>
+
+        <div class="card-body">
+          <form>
+            <div class="d-flex flex-row">
+              <label for="send-get-request-input-url" class="form-label">Enter URL to send a POST request</label>
+            </div>
+
+            <div class="d-flex bd-highlight flex-row">
+              <div class="d-flex flex-fill me-1 py-1">
+                <input type="url" name="send-post-request-input-url" [(ngModel)]="this.webServiceUrl" class="form-control" id="send-post-request-input-url">
+              </div>
+
+              <div class="d-flex justify-content-end p-1">
+                <input type="number" name="send-post-request-input-no-of-json-objects" [(ngModel)]="this.noOfJsonObjects" placeholder="No. of JSON objects" class="form-control w-100">
+              </div>
+
+              <div class="d-flex justify-content-end p-1">
+                <button class="btn btn-primary" (click)="onPostButtonClicked()">POST</button>
+              </div>
+            </div>
+
+            <div class="d-flex flex-row">
+              <label for="send-post-request-request-input-body" class="form-label">Response body</label>
+            </div>
+
+            <div class="d-flex flex-row h-100">
+                <textarea id="send-post-request-request-input-body" name="send-post-request-request-input-body" class="form-control flex-fill fs-6 form-control-sm" [(ngModel)]="responseBodyText"></textarea>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-light">
+          Request response
+        </div>
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col">
+
+              <div class="table-responsive my-1">
+                  <table class="table table-striped table-bordered">
+                    <thead class="thead-dark">
+                      <th class="text-center" scope="col">Sr. No.</th>
+                      <th class="text-center" scope="col">Status code</th>
+                      <th class="text-center" scope="col">No. of JSON objects</th>
+                      <th class="text-center" scope="col">Size</th>
+                      <th class="text-center" scope="col">Time taken (In seconds)</th>
+                    </thead>
+
+                    <tbody>
+                        <tr class="bg-info" *ngFor="let requestinfo of requestInfos; index as i">
+                          <td class="table-info text-center">{{this.requestinfo.id}}</td>
+                          <td class="table-info text-center">{{this.requestinfo.statusCode}}</td>
+                          <td class="table-info text-center">{{this.requestinfo.responseBodyLength}}</td>
+                          <td class="table-info text-center">{{this.requestinfo.size}}</td>
+                          <td class="table-info text-center">{{this.requestinfo.timeTaken}}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

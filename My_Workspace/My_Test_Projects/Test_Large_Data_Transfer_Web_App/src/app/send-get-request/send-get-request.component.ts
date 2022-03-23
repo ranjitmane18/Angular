@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IWeatherForecast } from '../common/weatherforecast';
+import { WeatherForecast } from '../common/weatherforecast';
 import { RequestService } from '../common/send-request.service';
 import { DatePipe, JsonPipe } from '@angular/common';
 import { HttpResponse } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import sizeof from 'object-sizeof';
 import { RequestInfo } from '../common/requestInfo';
 
@@ -15,18 +14,19 @@ import { RequestInfo } from '../common/requestInfo';
 })
 
 
-export class SendGetRequestComponent implements OnInit {
+export class SendGetRequestComponent implements OnInit, OnDestroy {
 
   private sub! : Subscription;
   private requestId : number = 1;
 
-  //public weatherForecasts : IWeatherForecast[] = [];
+  //public weatherForecasts : WeatherForecast[] = [];
   public requestInfos : RequestInfo[] = [];
   public status : string = '';
 
   //weatherForecasts : Object = [];
   errorMessage : string = "";
-  public webServiceUrl = "https://localhost:7231/api/WeatherForecast";
+  public webServiceUrl = "https://localhost:5001/api/WeatherForecast/100000";
+  //public webServiceUrl = "https://localhost:7231/api/WeatherForecast/GetWeatherForecast";
 
   constructor(private requestService : RequestService, private datePipe : DatePipe) { }
 
@@ -45,15 +45,16 @@ export class SendGetRequestComponent implements OnInit {
     this.sub = this.requestService.requestGet(this.webServiceUrl)
     // resp is type of HttpResponse<IWeatherForecats[]>
     .subscribe({
-      next: (resp : HttpResponse<IWeatherForecast[]>)=> {
+      next: (resp : HttpResponse<WeatherForecast[]>)=> {
 
         responseDateTime = (new Date);
-        console.log("response received from service at %s <",  responseDateTime, 'MM/dd/yyyy h:mm:ss');
+        console.log("response received from service at %s",  responseDateTime, 'MM/dd/yyyy h:mm:ss');
 
         // display its headers
         const keys = resp.headers.keys();
         let headers = keys.map((key: any) => `${key} : ${resp.headers.get(key)}`);
         console.log("headers", headers);
+        console.log("content-length : ", resp.headers.get('content-length'));
 
         if(resp != null)
         {
@@ -62,9 +63,11 @@ export class SendGetRequestComponent implements OnInit {
           {
             let responseBodyLength = resp.body.length;
             let size = this.humanizeData(sizeof(resp.body));
+            let statusCode = resp.status;
 
             console.log("response body length",responseBodyLength);
-            console.log("response body size in MB", this.humanizeData(sizeof(resp.body)));
+            console.log("response body size in MB", size);
+            console.log("response status code", statusCode);
 
             //calculate the time taken in mins
             let timeDifferenceInMiliSeconds = (responseDateTime.getTime() - requestDateTime.getTime()); // milliseconds between now & Christmas
@@ -72,7 +75,7 @@ export class SendGetRequestComponent implements OnInit {
             let timeTaken = diffSeconds;
 
             //add it to collection
-            this.requestInfos.push(new RequestInfo(this.requestId, responseBodyLength, size, timeTaken, JSON.stringify(resp.body)));
+            this.requestInfos.push(new RequestInfo(this.requestId, statusCode, responseBodyLength, size, timeTaken, JSON.stringify(resp.body)));
             this.requestId++;
             // let body = {...resp.body!};
           }
@@ -82,7 +85,7 @@ export class SendGetRequestComponent implements OnInit {
             let timeDifferenceInMiliSeconds = (responseDateTime.getTime() - requestDateTime.getTime()); // milliseconds between now & Christmas
             var diffSeconds = Math.ceil(Math.abs(timeDifferenceInMiliSeconds / 1000)); // minutes
             let timeTaken = diffSeconds;
-            this.requestInfos.push(new RequestInfo(this.requestId, 0, "NA", timeTaken, "NA"));
+            this.requestInfos.push(new RequestInfo(this.requestId, 0, 0, "NA", timeTaken, "NA"));
             this.requestId++;
             console.log("response body is null")
           }
@@ -100,13 +103,18 @@ export class SendGetRequestComponent implements OnInit {
 
 
   ngOnDestroy(): void {
-    console.log("ngOnDestroy is called");
-    this.sub.unsubscribe();
+    console.log("Send-Post-Request : ngOnDestroy is called");
+
+    if(this.sub != null)
+    {
+      this.sub.unsubscribe();
+    }
   }
 
   humanizeData(bytes: number, decimals = 2): string {
     if (bytes === 0) return '0 Bytes';
 
+    console.log("No of bytes received : ", bytes);
     const k = 1024;
     const dm = decimals < 0 ? 0 : decimals;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
