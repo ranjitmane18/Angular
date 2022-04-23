@@ -24,8 +24,13 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 export class EventThumbnailCompoent {
   @Input() event : any;
+  eventTicketPrice : any = 10;
   @Output() registerEventEmmiter = new EventEmitter();
   onClick() {
     this.registerEventEmmiter.emit('You are successfully registered to this event');
+  }
+
+  logMessage() {
+    console.log("logMessage is called");
   }
 }
