@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector : 'event-thumbnail',
@@ -14,12 +14,18 @@ import { Component, Input } from "@angular/core";
   </p>
 </div>
 <div class="card-footer">
-  <small class="text-muted">Venue : {{event.location.city}}!!</small>
-</div>
+<div class="d-flex justify-content-start">
+    <small class="text-muted">Venue : {{event.location.city}}!!</small>
+    <button class="btn btn-success btn-sm rounded ms-start" (click)="onClick()">Register Here!</button>
+  </div>
 </div>
 `
 })
 
 export class EventThumbnailCompoent {
   @Input() event : any;
+  @Output() registerEventEmmiter = new EventEmitter();
+  onClick() {
+    this.registerEventEmmiter.emit('You are successfully registered to this event');
+  }
 }

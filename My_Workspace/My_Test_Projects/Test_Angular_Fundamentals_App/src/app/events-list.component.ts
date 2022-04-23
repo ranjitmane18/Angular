@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
   template : `
   <h1 class="fs-2 text-center p-2">Upcoming Angular Events</h1>
   <hr />
-  <event-thumbnail [event]="event"> </event-thumbnail>`
+  <event-thumbnail [event]="event" (registerEventEmmiter)="handleRegisterEvent($event)"> </event-thumbnail>`
 })
 
 export class EventListComponent {
@@ -20,5 +20,9 @@ export class EventListComponent {
       city : 'London',
       country : 'England'
     }
+  }
+
+  handleRegisterEvent(evData : any) {
+    console.log(`Event data received from the child component : ${evData}`);
   }
 }
