@@ -3,9 +3,9 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 @Component({
   selector : 'event-thumbnail',
   template : `
-    <div class="card bg-light w-100 h-100" [hidden]="!component">
+  <div class="card bg-light mb-3 ms-2" [hidden]="!component">
       <div class="card-body">
-        <h6 class="card-title" [ngSwitch]="component.name">
+        <h6 class="card-title" [ngSwitch]="component.name" class="fw-normal fs-6 lh-sm">
               <span class="fs-5 me-5">{{component.name}}</span>
               <span *ngSwitchCase="'PSMT'">(Full Stack Web App)</span>
               <span *ngSwitchCase="'ProLog'">(Client-Server App)</span>
@@ -33,8 +33,8 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
           <div *ngIf="component?.pop">
               <span>pop</span>
               <div class="d-flex flex-row mb-1">
-                  <div *ngFor="let people of component.pop" class="w-100">
-                      <span class="card-text me-2">{{people.id}}</span>
+                  <div *ngFor="let people of component.pop">
+                      <span class="card-text me-2 w-50">{{people.id}}</span>
                       <span class="card-text">{{people.name}}</span>
                   </div>
               </div>

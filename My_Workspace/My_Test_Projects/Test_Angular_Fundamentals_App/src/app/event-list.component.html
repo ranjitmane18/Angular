@@ -1,0 +1,12 @@
+<div class="container-fluid p-0">
+  <div class="row bd-highlight">
+    <div class="col">
+      <p class="text-start mx-2 my-3 font-weight-light fs-5 fw-bold">VPS Pune SW India </p>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <event-thumbnail class="col bd-highlight" *ngFor="let component of components" [component]="component" (click)="this.handleOnComponentClick(component.name)">
+    </event-thumbnail>
+  </div>
+
+</div>

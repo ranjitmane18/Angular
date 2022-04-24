@@ -1,90 +1,30 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { ComponentService } from "src/shared/component.service";
+import { ToastService } from "src/shared/toast.service";
+
+
 
 @Component({
   selector : 'events-list',
-  template : `
-  <h4 class="text-start mt-2">VPS Pune SW India</h4>
-  <hr />
-  <div class="row">
-      <event-thumbnail class="col-md-3" *ngFor="let component of components" [component]="component">
-      </event-thumbnail>
-  </div>
-`
+  templateUrl : './event-list.component.html'
 })
 
-export class EventListComponent {
-  components = [
-    {
-      id : 1,
-      name : 'PSMT',
-      owner : 'Megha S',
-      version : '1.1',
-      type : 'Service Tool',
-      resource : '3',
-      pop : [
-        {
-          id : 1,
-          name : 'ranjit'
-        },
-        {
-          id : 2,
-          name : 'megha'
-        }
-      ]
-    },
-    {
-      id : 2,
-      name : 'ProLog',
-      owner : 'Sagar K',
-      version : '1.1',
-      type : 'Service Tool',
-      resource : '2',
-      pop : [
-        {
-          id : 1,
-          name : 'ranjit'
-        },
-        {
-          id : 2,
-          name : 'megha'
-        },
-        {
-          id : 3,
-          name : 'sagar'
-        }
-      ]
-    },
-    {
-      id : 3,
-      name : 'TDG',
-      owner : 'Sagar K',
-      version : '1.0',
-      type : 'ProBeam',
-      resource : '3',
-      pop : [
-        {
-          id : 1,
-          name : 'ranjit'
-        },
-        {
-          id : 2,
-          name : 'megha'
-        },
-        {
-          id : 3,
-          name : 'sagar'
-        }
-      ]
-    },
-    {
-      id : 4,
-      name : 'ACV',
-      owner : 'Vaibhav S',
-      version : '1.0',
-      type : 'Service Tool',
-      resource : '3'
-    }
-  ];
+export class EventListComponent implements OnInit {
+
+  components:any[] | undefined;
+
+  constructor(private componentService : ComponentService, private toastService : ToastService) {
+  }
+
+  //service lifecylce hooks
+  ngOnInit() {
+    this.components = this.componentService.getComponents();
+  }
+
+  handleOnComponentClick(componentName : any) {
+    console.log("handleOnComponentClick is called for " + componentName);
+    this.toastService.info("clicked");
+  }
 }
 
 
