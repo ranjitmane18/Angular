@@ -5,11 +5,11 @@ import { ToastService } from "src/shared/toast.service";
 
 
 @Component({
-  selector : 'events-list',
-  templateUrl : './event-list.component.html'
+  selector : 'component-list',
+  templateUrl : './component-list.component.html'
 })
 
-export class EventListComponent implements OnInit {
+export class ComponentListComponent implements OnInit {
 
   components:any[] | undefined;
 

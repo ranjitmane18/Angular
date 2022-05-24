@@ -1,9 +1,9 @@
 import {Routes } from '@angular/router';
-import { EventDetailsComponent } from 'src/app/event-details.component';
-import { EventListComponent } from "src/app/events-list.component";
+import { ComponentDetailsComponent } from 'src/app/component-details.component';
+import { ComponentListComponent } from "src/app/component-list.component";
 
 export const appRoutes : Routes = [
-  { path : 'events', component : EventListComponent },
-  { path : 'events/:id', component: EventDetailsComponent },
-  { path : '', redirectTo : '/events', pathMatch : 'full' }
+  { path : 'components', component : ComponentListComponent },
+  { path : 'components/:id', component: ComponentDetailsComponent },
+  { path : '', redirectTo : '/components', pathMatch : 'full' }
 ];

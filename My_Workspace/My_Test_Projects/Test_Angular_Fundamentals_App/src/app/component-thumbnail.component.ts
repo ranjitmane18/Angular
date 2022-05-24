@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector : 'event-thumbnail',
+  selector : 'component-thumbnail',
   template : `
-  <div class="card bg-light mb-3 ms-2" [hidden]="!component">
+  <div [routerLink]="['/components', component.id]" class="card bg-light mb-3 ms-2" [hidden]="!component">
       <div class="card-body">
         <h6 class="card-title" [ngSwitch]="component.name" class="fw-normal fs-6 lh-sm">
               <span class="fs-5 me-5">{{component.name}}</span>
@@ -53,7 +53,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 `
 })
 
-export class EventThumbnailCompoent {
+export class ComponentThumbnailComponent {
   @Input() component : any;
   eventTicketPrice : any = 10;
   @Output() registerEventEmmiter = new EventEmitter();
