@@ -10,6 +10,7 @@ import { ToastService } from 'src/shared/toast.service';
 import { ComponentDetailsComponent } from './component-details.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from 'src/shared/routes';
+import { CreateComponentComponent } from './create-component.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { appRoutes } from 'src/shared/routes';
     ComponentListComponent,
     ComponentThumbnailComponent,
     NavbarComponent,
-    ComponentDetailsComponent
+    ComponentDetailsComponent,
+    CreateComponentComponent
   ],
   imports: [
     BrowserModule,
