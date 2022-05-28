@@ -7,8 +7,8 @@ export class ComponentService {
   }
 
   getComponent(id : number) {
-    console.log("get component by id is called");
-    return Components.find(component => component.id === id);
+    console.log("get component by id is called : ", id);
+    return Components.find(component => component.id === Number(id));
   }
 }
 
