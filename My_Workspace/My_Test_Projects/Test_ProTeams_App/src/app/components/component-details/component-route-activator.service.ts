@@ -11,7 +11,7 @@ export class ComponentRouteActivator implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    const eventExists = !!this.componentService.getComponent(route.params['id']);
+    const eventExists = !!this.componentService.getComponent(+route.params['id']);
     if(!eventExists) {
       this.router.navigate(['/404']);
     }

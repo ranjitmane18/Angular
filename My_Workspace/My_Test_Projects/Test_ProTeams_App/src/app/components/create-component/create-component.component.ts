@@ -6,11 +6,12 @@ import { Router } from "@angular/router";
 })
 
 export class CreateComponentComponent {
-
+  isDirty:boolean = true;
   constructor(private router : Router) {
 
   }
   cancel() {
+    console.log("cancel is called");
     this.router.navigate(['/components']);
   }
 }

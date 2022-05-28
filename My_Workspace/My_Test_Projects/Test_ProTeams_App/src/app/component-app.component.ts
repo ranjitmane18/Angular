@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   <router-outlet></router-outlet>`
 })
 export class ComponentsAppComponent {
-  title = 'Test_Angular_Fundamentals_App';
+  title = 'Pro-Teams';
 }

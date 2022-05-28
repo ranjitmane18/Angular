@@ -1,0 +1,47 @@
+<div [routerLink]="['/components', component.id]" class="card bg-light mb-3 ms-2" [hidden]="!component">
+    <div class="card-body">
+      <h6 class="card-title" [ngSwitch]="component.name" class="fw-normal fs-6 lh-sm">
+            <span class="fs-5 me-5">{{component.name}}</span>
+            <span *ngSwitchCase="'PSMT'">(Full Stack Web App)</span>
+            <span *ngSwitchCase="'ProLog'">(Client-Server App)</span>
+            <span *ngSwitchCase="'TDG'">(Web API)</span>
+            <span *ngSwitchDefault>(Desktop App)</span>
+      </h6>
+
+      <div class="d-flex flex-column">
+
+        <div class="d-flex flex-row p-0 mb-1">
+          <label for="component-id" class="w-50">id</label>
+          <span id="component-id" class="card-text">{{component.id}}</span>
+        </div>
+
+        <div class="d-flex flex-row p-0 mb-1">
+          <label for="component-id" class="w-50">owner</label>
+          <span id="component-id" class="card-text">{{component.owner}}</span>
+        </div>
+
+        <div class="d-flex flex-row p-0 mb-1">
+          <label for="component-id" class="w-50">version</label>
+          <span id="component-id" class="card-text">{{component.version}}</span>
+        </div>
+
+        <div *ngIf="component?.pop">
+            <span>pop</span>
+            <div class="d-flex flex-row mb-1">
+                <div *ngFor="let people of component.pop">
+                    <span class="card-text me-2 w-50">{{people.id}}</span>
+                    <span class="card-text">{{people.name}}</span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card-footer bg-transparent">
+      <div class="d-flex">
+          <small class="text-muted me-auto">{{component.resource}}</small>
+          <!-- <button class="btn btn-success btn-sm rounded" (click)="onClick()">Register Here!</button> -->
+      </div>
+    </div>
+  </div>
