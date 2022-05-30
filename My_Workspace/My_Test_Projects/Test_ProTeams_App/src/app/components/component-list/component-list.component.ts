@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ComponentService } from "src/shared/component.service";
+import { ActivatedRoute } from "@angular/router";
 import { ToastService } from "src/shared/toast.service";
-
-
 
 @Component({
   selector : 'component-list',
@@ -11,14 +9,14 @@ import { ToastService } from "src/shared/toast.service";
 
 export class ComponentListComponent implements OnInit {
 
-  components:any[] | undefined;
+  components:any;
 
-  constructor(private componentService : ComponentService, private toastService : ToastService) {
+  constructor(private toastService : ToastService, private route : ActivatedRoute) {
   }
 
   //service lifecylce hooks
   ngOnInit() {
-    this.components = this.componentService.getComponents();
+    this.components = this.route.snapshot.data['resolvedComponents'];
   }
 
   handleOnComponentClick(componentName : any) {

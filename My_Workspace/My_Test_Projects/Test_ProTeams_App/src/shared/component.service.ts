@@ -1,18 +1,24 @@
 import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class ComponentService {
+  
+  //this function returns an observable
   getComponents() {
-    return Components;
+    let subject = new Subject();
+    setTimeout(()=> { subject.next(COMPONENTS); subject.complete(); }, 
+    2000);
+    return subject;
   }
 
   getComponent(id : number) {
     console.log("get component by id is called : ", id);
-    return Components.find(component => component.id === id);
+    return COMPONENTS.find(component => component.id === id);
   }
 }
 
-const Components = [
+const COMPONENTS = [
   {
     id : 1,
     name : 'PSMT',

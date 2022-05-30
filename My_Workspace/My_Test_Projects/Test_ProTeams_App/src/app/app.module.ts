@@ -15,6 +15,7 @@ import { ComponentDetailsComponent } from './components/component-details/compon
 import { ComponentRouteActivator } from './components/component-details/component-route-activator.service';
 import { ComponentListComponent } from './components/component-list/component-list.component';
 import { CreateComponentComponent } from './components/create-component/create-component.component';
+import { ComponentListResolver } from 'src/shared/component-list-resolver.service';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CreateComponentComponent } from './components/create-component/create-c
     ComponentService,
     ToastService,
     ComponentRouteActivator,
+    ComponentListResolver,
     { provide : 'canDeactivateCreateEvent', useValue : checkDirtyState }
   ],
   bootstrap: [ComponentsAppComponent]
