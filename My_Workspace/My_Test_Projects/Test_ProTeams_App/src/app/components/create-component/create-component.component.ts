@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 })
 
 export class CreateComponentComponent {
-  isDirty:boolean = true;
+  isDirty:boolean = false;
   constructor(private router : Router) {
 
   }

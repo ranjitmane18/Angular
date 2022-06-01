@@ -8,7 +8,7 @@ export class ComponentService {
   getComponents() {
     let subject = new Subject();
     setTimeout(()=> { subject.next(COMPONENTS); subject.complete(); }, 
-    2000);
+    100);
     return subject;
   }
 

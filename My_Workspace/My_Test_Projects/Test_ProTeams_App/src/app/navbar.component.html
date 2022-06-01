@@ -9,19 +9,19 @@
       <div class="collapse navbar-collapse" id="app-navbar-nav">
         <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" [routerLink]="['/components']">Home</a>
+                <a class="nav-link" aria-current="page" [routerLink]="['/components']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/components/new']">Add</a>
+              <a class="nav-link" [routerLink]="['/components/new']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Add</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/about']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">About</a>
+            </li> -->
         </ul>
 
-        <button class="btn btn-light">Sign out</button>
+        <button class="btn btn-light" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Sign out</button>
       </div>
   </div>
 </nav>
