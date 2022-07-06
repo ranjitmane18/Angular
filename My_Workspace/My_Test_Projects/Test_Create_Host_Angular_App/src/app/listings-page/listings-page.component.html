@@ -1,1 +1,9 @@
-<p>listings-page works!</p>
+<div>
+  <ul class="list-group" *ngFor="let listings of listings">
+    <li class="list-group-item">
+      <a class="bg-transparent text-decoration-none text-secondary" routerLink="/listings/{{listings.id}}">
+        <h6>{{listings.name}} - {{listings.price}}</h6>
+      </a>
+    </li>
+  </ul>
+</div>

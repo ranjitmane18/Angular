@@ -1,1 +1,22 @@
-<p>listing-detail-page works!</p>
+<div class="row">
+  <div class="col-auto">
+    <div class="card">
+      <div class="card-header">
+        {{listing?.name}}
+      </div>
+
+      <div class="card-body">
+        <div class="card-text">
+          <p>{{listing?.description}}</p>
+          <p>{{listing?.price}}</p>
+          <a class="btn btn-secondary text-decoration-none fs-6" routerLink="/contact/{{listing?.id}}">Contact seller</a>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <a class="btn btn-light text-decoration-none fs-6" routerLink="/listings">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+
