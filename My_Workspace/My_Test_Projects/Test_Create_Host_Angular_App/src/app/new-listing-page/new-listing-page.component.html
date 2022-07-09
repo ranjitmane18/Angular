@@ -1,1 +1,35 @@
-<p>new-listing-page works!</p>
+<form (ngSubmit)="onSubmit()" class="mx-3">
+   
+    <div class="row g-3 align-items-center my-3">
+        <div class="col-1">
+            <label for="app-listing-name">Name</label>
+        </div>
+
+        <div class="col-2">
+            <input type="text" id="app-listing-name" class="form-control" [(ngModel)]="this.name" />
+        </div>
+    </div>
+
+    <div class="row g-3 align-items-center my-3">
+        <div class="col-1">
+            <label for="app-listing-description">Description</label>
+        </div>
+
+        <div class="col-2">
+            <input type="text" id="app-listing-description" class="form-control" [(ngModel)]="this.description" />
+        </div>
+    </div>
+
+    
+    <div class="row g-3 align-items-center my-3">
+        <div class="col-1">
+            <label for="app-listing-price">Price</label>
+        </div>
+
+        <div class="col-2">
+            <input type="text" id="app-listing-price" class="form-control" [(ngModel)]="this.price" />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-sm btn-outline-primary">Create listing</button>
+</form>
