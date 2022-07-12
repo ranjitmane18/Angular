@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmitButtonClicked()">
+        <div class="row align-items-center my-3">
+            <div class="col">
+                <label for="app-listing-name">Name</label>
+            </div>
+    
+            <div class="col">
+                <input type="text" id="app-listing-name" name="app-listing-name" class="form-control" [(ngModel)]="this.name" />
+            </div>
+        </div>
+    
+        <div class="row align-items-center my-3">
+            <div class="col">
+                <label for="app-listing-description">Description</label>
+            </div>
+    
+            <div class="col">
+                <input type="text" id="app-listing-description" name="app-listing-description" class="form-control" [(ngModel)]="this.description" />
+            </div>
+        </div>
+    
+        
+        <div class="row align-items-center my-3">
+            <div class="col">
+                <label for="app-listing-price">Price</label>
+            </div>
+    
+            <div class="col">
+                <input type="text" id="app-listing-price" name="app-listing-price" class="form-control" [(ngModel)]="this.price" />
+            </div>
+        </div>
+    
+        <div class="row row-cols-1">
+            <div class="col">
+                <div class="d-grid gap-2 d-md-flex">
+                    <a class="text-decoration-none btn btn-sm btn-primary" role="button" routerLink="/my-listing">Go to My Listing page</a>
+                    <button type="submit" class="btn btn-sm btn-outline-primary">{{buttonText}}</button>  
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

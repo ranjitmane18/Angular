@@ -1,9 +1,38 @@
-<div>
-  <ul class="list-group" *ngFor="let listings of listings">
-    <li class="list-group-item">
-      <a class="bg-transparent text-decoration-none text-secondary" routerLink="/listings/{{listings.id}}">
-        <h6>{{listings.name}} - {{listings.price}}</h6>
-      </a>
-    </li>
-  </ul>
+
+<div class="row row-cols-1 mx-2">
+  <div class="col">
+    <span class="fs-6 fw-normal">Listing Page</span>
+  </div>
+</div>
+
+<div class="row row-cols-1 mx-2">
+  <div class="col">
+    <table class="table table-primary table-striped">
+      <thead>
+        <th> Name </th>
+        <th> Description </th>
+        <th> Price </th>
+      </thead>
+    
+      <tbody>
+        <tr *ngFor="let listing of listings">
+          <th>
+            <span>{{listing.name}}</span>
+          </th>
+          <td>
+            <span>{{listing.description}}</span>
+          </td>
+          <td>
+            <span>{{listing.price}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
+</div>
+
+<div class="row row-cols-1 mx-2">
+  <div class="col">
+    <a class="text-decoration-none btn btn-primary" routerLink="/my-listing">Go to My Listing page</a>
+  </div>
 </div>
