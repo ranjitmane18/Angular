@@ -11,14 +11,20 @@ import { Listing } from '../types';
 export class ListingDataFormComponent implements OnInit {
   name:string = '';
   description:string ='';
-  price: string = '';
+  price: number = 0;
   
   @Input() buttonText:string | undefined;
+  @Input() currentName = '';
+  @Input() currentDescription = '';
+  @Input() currentPrice = 0;
   @Output() onSubmit: EventEmitter<Listing> = new EventEmitter<Listing>();
 
   constructor(private router : Router) { }
 
   ngOnInit(): void {
+    this.name = this.currentName;
+    this.description = this.currentDescription;
+    this.price = this.currentPrice;
   }
 
   onSubmitButtonClicked(): void {
