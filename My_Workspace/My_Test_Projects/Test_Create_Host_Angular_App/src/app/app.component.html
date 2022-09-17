@@ -1,2 +1,17 @@
 <app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
+<div class="container" *ngIf="auth.user | async">
+    <router-outlet></router-outlet>
+
+    <div class="row row-cols-1 mx-2">
+        <div class="col">
+            <div class="d-grid gap-2 justify-content-md-end">
+                <button class="btn btn-primary btn-sm" (click)="signOutClicked()">Sign Out</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" *ngIf="!(auth.user | async)">
+    <h6>You need to sign in first</h6>
+    <button class="btn btn-primary btn-sm" (click)="signInClicked()">Sign in with Google</button>
+</div>

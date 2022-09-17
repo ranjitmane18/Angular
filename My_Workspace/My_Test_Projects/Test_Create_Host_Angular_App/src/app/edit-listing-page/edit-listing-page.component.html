@@ -1,17 +1,21 @@
 <div class="row m-2">
     <div class="col-sm-6">
-        <div class="card">
+        <div class="card" *ngIf="this.listing">
             <div class="card-title text-center">
                <span class="fs-6 fw-bold">Edit Listing</span> 
             </div>
             <div class="card-body">
                 <app-listing-data-form buttonText="Save Changes" 
-                                        [currentName]="listing.name"
-                                        [currentDescription]="listing.description"
-                                        [currentPrice]="listing.price"
-                                       (onSubmit)="onSubmit()">
+                                        [currentName]="this.listing.name"
+                                        [currentDescription]="this.listing.description"
+                                        [currentPrice]="this.listing.price"
+                                       (onSubmit)="onSubmit($event)">
                 </app-listing-data-form>
             </div>
         </div>        
     </div>
+</div>
+
+<div class="card" *ngIf="!this.listing">
+    <h6>Loading ...</h6>
 </div>

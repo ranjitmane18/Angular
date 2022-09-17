@@ -1,23 +1,29 @@
-<div class="row">
-  <div class="col-auto">
-    <div class="card">
-      <div class="card-header">
-        {{listing?.name}}
-      </div>
-
-      <div class="card-body">
-        <div class="card-text">
-          <p>{{listing?.description}}</p>
-          <p>{{listing?.price}}</p>
-          <a class="btn btn-secondary text-decoration-none fs-6" routerLink="/contact/{{listing?.id}}">Contact seller</a>
+<div class="row my-5">
+  <div class="col-auto mx-auto my-auto">
+    <div class="d-flex align-items-center">
+      <div class="card" *ngIf="!isLoading">
+        <div class="card-header">
+          {{listing?.name}}
         </div>
-      </div>
-
-      <div class="card-footer">
-        <a class="btn btn-light text-decoration-none fs-6" routerLink="/edit-listing/{{listing?.id}}">Edit</a>
-        <a class="btn btn-light text-decoration-none fs-6" routerLink="/listings">Go to Listing Page</a>
+  
+        <div class="card-body">
+          <div class="card-text">
+            <p>This listing has been viewed {{listing?.views}} times</p>
+            <p>{{listing?.description}}</p>
+            <p>{{listing?.price}}</p>
+            <a class="btn btn-secondary text-decoration-none fs-6" [routerLink]="['/contact', listing?.id]">Contact seller</a>
+          </div>
+        </div>
+  
+        <div class="card-footer">
+          <a class="btn btn-light text-decoration-none fs-6" routerLink="/edit-listing/{{listing?.id}}">Edit</a>
+          <a class="btn btn-light text-decoration-none fs-6" routerLink="/listings">Go to Listing Page</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="container" *ngIf="isLoading">
+ <h6>Loading ...</h6>
+</div>

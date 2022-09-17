@@ -17,7 +17,7 @@
       <tbody>
         <tr *ngFor="let listing of listings">
           <th>
-            <span>{{listing.name}}</span>
+            <a class="text-decoration-none btn link-primary" [routerLink]="['/listings', listing.id]">{{listing.name}}</a>
           </th>
           <td>
             <span>{{listing.description}}</span>
