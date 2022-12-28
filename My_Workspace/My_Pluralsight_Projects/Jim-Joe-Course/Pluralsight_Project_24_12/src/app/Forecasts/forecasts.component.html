@@ -1,0 +1,12 @@
+<div class="container">
+    <h3>Forecasts</h3>
+    <div class="row w-50">
+        <div class="col">
+            <forecast-thumbnail [weather]="forecast"
+                                *ngFor="let forecast of forecasts" 
+                                (onViewButtonClickedEvent)="this.handleOnViewButtonClickedEvent($event)"
+                                (click)="this.onForecastThumbnailClicked(forecast.air_quality)">
+            </forecast-thumbnail>
+        </div>
+    </div>
+</div>

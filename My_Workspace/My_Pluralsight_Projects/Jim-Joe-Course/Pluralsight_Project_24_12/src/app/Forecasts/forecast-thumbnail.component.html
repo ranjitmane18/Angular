@@ -1,0 +1,72 @@
+<div class="card my-2">
+    <div class="card-body">
+        <div class="row row-cols-2">
+            <div class="col">
+                <div class="card-title"> CURRENT AIR QUALITY </div>
+                <div class="card-subtitle mb-2 text-muted">{{weather?.time}}</div>
+            </div>
+            <div class="col">
+                <ol class="list-group list-group-flush">
+                    
+                    <li class="list-group-item d-flex justifiy-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <span class="fw-bold">Air Quality</span>
+                        </div>
+                        <span class="fw-normal">{{weather?.air_quality}}</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justifiy-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <span class="fw-bold">Wind</span>
+                        </div>
+                        <span class="fw-normal">{{weather?.wind}}</span>
+                    </li>
+
+                    <div *ngIf="weather?.location">
+                        <li class="list-group-item d-flex justifiy-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <span class="fw-bold">Location</span>
+                            </div>
+                            <span class="fw-normal">{{weather?.location.city}}</span>
+                        </li>
+                    </div>
+                    <div>
+                        <li class="list-group-item d-flex justifiy-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <span class="fw-bold">Time</span>
+                            </div>
+                            <span>{{weather?.time}}</span>
+                        </li>
+                    </div>
+                    <!-- <div [ngSwitch]="weather?.time">
+                        <li class="list-group-item d-flex justifiy-content-between align-items-start">
+                            <div [class.green]="weather?.time === '8:00 AM'" class="ms-2 me-auto">
+                                <span class="fw-bold">Time of the day</span>
+                            </div>
+                            <span *ngSwitchCase="'8:00 AM'">Morning</span>
+                            <span *ngSwitchCase="'12:00 PM'">Afternoon</span>
+                            <span *ngSwitchCase="'6:00 PM'">Evening</span>
+                        </li>
+                    </div> -->
+
+                    <div [ngSwitch]="weather?.time">
+                        <li class="list-group-item d-flex justifiy-content-between align-items-start">
+                            <div [ngClass]="getTimeOfTheDayClass()"
+                                [ngStyle]="getTimeOfTheDayStyle()"
+                                class="ms-2
+                                me-auto">
+                                <span class="fw-bold">Time of the day</span>
+                            </div>
+                            <span *ngSwitchCase="'8:00 AM'">Morning</span>
+                            <span *ngSwitchCase="'12:00 PM'">Afternoon</span>
+                            <span *ngSwitchCase="'6:00 PM'">Evening</span>
+                        </li>
+                    </div>
+                </ol>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary white-color" (click)="handleOnViewButtonClicked()">View</button>
+        </div>
+    </div>
+</div>
