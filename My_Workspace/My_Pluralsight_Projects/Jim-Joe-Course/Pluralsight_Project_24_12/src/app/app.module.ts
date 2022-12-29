@@ -10,12 +10,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { ForecastDetails } from './forecasts/forecast-details/forecast-details.component';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
-import { CreateForecastComponent } from './shared/create-forecast.component';
+
 import { Error404Component } from './error/404.component';
 import { ForecastRouteActivator } from './shared/forecast-route-activator.service';
 import { ForecastListResolver } from './shared/forecast-list-resolver.service';
 import { ForecastsComponent } from './forecasts/forecasts/forecasts.component';
 import { ForecastThumbnailComponent } from './forecasts/forecast-thumnail/forecast-thumbnail.component';
+import { CreateForecastComponent } from './forecasts/create-forecast/create-forecast.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,6 @@ import { ForecastThumbnailComponent } from './forecasts/forecast-thumnail/foreca
     ForecastService,
     ToastService,
     ForecastRouteActivator,
-    { provide: 'canDeactivateCreateForecast' , useValue: checkDirtyState},
     ForecastListResolver
     ],
   bootstrap: [ForecastAppComponent]

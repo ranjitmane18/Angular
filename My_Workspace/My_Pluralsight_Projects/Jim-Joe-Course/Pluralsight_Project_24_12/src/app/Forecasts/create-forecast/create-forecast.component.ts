@@ -5,5 +5,5 @@ import { Component } from "@angular/core";
     templateUrl:'./create-forecast.component.html'
 })
 export class CreateForecastComponent {
-    isDirty: boolean = true;
+    isDirty: boolean = false;
 }

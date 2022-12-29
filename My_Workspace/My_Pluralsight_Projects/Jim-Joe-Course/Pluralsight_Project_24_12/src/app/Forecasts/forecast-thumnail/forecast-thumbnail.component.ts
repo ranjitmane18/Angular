@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
         .white-color { color: white; }
         .green { color: green;  background-color: skyblue; }
         .bold { font-weight: bold;  }
+        .active { color: orange; }
     `]
 })
 export class ForecastThumbnailComponent {
@@ -15,7 +16,7 @@ export class ForecastThumbnailComponent {
 
     @Output()
     onViewButtonClickedEvent = new EventEmitter();
-    
+
     forecastDuration: any = "1 hour";
 
     handleOnViewButtonClicked() {

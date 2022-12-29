@@ -8,7 +8,7 @@ export class ForecastService {
         setTimeout(()=> {
             subject.next(FORECASTS);
             subject.complete();
-        }, 100);
+        }, 10);
         return subject;
     }
 
