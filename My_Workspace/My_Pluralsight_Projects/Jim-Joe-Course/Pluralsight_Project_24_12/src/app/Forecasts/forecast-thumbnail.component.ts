@@ -27,9 +27,6 @@ export class ForecastThumbnailComponent {
     }
 
     getTimeOfTheDayClass() {
-        // const isMorningTime = this.weather && this.weather.time === '8:00 AM';
-        // return {green: isMorningTime, bold: isMorningTime};
-
         if(this.weather && this.weather.time === '8:00 AM')
         {
             return ['green', 'bold'];

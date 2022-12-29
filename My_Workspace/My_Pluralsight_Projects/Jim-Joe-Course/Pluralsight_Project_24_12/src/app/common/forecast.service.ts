@@ -1,9 +1,19 @@
 import { Injectable } from "@angular/core";
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class ForecastService {
     getForecasts() {
-        return FORECASTS;
+        let subject = new Subject();
+        setTimeout(()=> {
+            subject.next(FORECASTS);
+            subject.complete();
+        }, 100);
+        return subject;
+    }
+
+    getForecast(id: number) {
+        return FORECASTS.find(forecast => forecast.id == id);
     }
 }
 
