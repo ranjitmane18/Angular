@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ToastService } from "../common/toastr.service";
-import { ForecastService } from "../common/forecast.service";
+
 import { ActivatedRoute } from "@angular/router";
+import { ForecastService } from "src/app/common/forecast.service";
+import { ToastService } from "src/app/common/toastr.service";
 
 @Component({
     selector: 'forecasts',

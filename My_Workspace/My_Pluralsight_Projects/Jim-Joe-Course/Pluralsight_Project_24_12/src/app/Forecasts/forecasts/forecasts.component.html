@@ -3,7 +3,7 @@
     <div class="row w-50">
         <div class="col">
             <forecast-thumbnail [weather]="forecast"
-                                *ngFor="let forecast of forecasts" 
+                                *ngFor="let forecast of forecasts"
                                 (onViewButtonClickedEvent)="this.handleOnViewButtonClickedEvent($event)"
                                 (click)="this.onForecastThumbnailClicked(forecast.air_quality)">
             </forecast-thumbnail>

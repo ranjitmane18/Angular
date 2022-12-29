@@ -2,9 +2,10 @@ import { Routes } from "@angular/router";
 import { Error404Component } from "./error/404.component";
 import { ForecastDetails } from "./forecasts/forecast-details/forecast-details.component";
 import { ForecastRouteActivator } from "./shared/forecast-route-activator.service";
-import { ForecastsComponent } from "./forecasts/forecasts.component";
+
 import { CreateForecastComponent } from "./shared/create-forecast.component";
 import { ForecastListResolver } from "./shared/forecast-list-resolver.service";
+import { ForecastsComponent } from "./forecasts/forecasts/forecasts.component";
 
 //resolver: before resolving the route, call the resolver and when the resolver finishes and
 //returns the data and this data to route as property named "forecasts",

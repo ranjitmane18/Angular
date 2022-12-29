@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ToastService } from './common/toastr.service';
 import { ForecastAppComponent } from './forecast-app.component';
-import { ForecastThumbnailComponent } from './forecasts/forecast-thumbnail.component';
-import { ForecastsComponent } from './forecasts/forecasts.component';
 import { ForecastService } from './common/forecast.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -16,6 +14,8 @@ import { CreateForecastComponent } from './shared/create-forecast.component';
 import { Error404Component } from './error/404.component';
 import { ForecastRouteActivator } from './shared/forecast-route-activator.service';
 import { ForecastListResolver } from './shared/forecast-list-resolver.service';
+import { ForecastsComponent } from './forecasts/forecasts/forecasts.component';
+import { ForecastThumbnailComponent } from './forecasts/forecast-thumnail/forecast-thumbnail.component';
 
 @NgModule({
   declarations: [
